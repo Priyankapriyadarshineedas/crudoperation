@@ -1,0 +1,17 @@
+<!-- all_persons.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Address</title>
+</head>
+<body>
+    <h1>All Address</h1>
+    <ul>
+        {% for address in address %}
+        <li>{{ address.street }} - {{ address.city }} - {{ address.state }} - {{ address.zipcode }} - {{ address.person }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

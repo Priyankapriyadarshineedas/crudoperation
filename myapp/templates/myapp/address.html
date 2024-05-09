@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/stylee.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Address Form</h1>
+        <form action="{% url 'address' %}" id="addressForm" class="mt-4" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_street">Street:</label>
+                <input type="text" name="street" id="id_street" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_city">City:</label>
+                <input type="text" name="city" id="id_city" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_state">State:</label>
+                <input type="text" name="state" id="id_state" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_zipcode">Zipcode:</label>
+                <input type="text" name="zipcode" id="id_zipcode" class="form-control" required>
+            </div>
+      <div class="form-group">
+                <label for="persons">Persons:</label>
+                <select id="persons" name="persons" multiple>
+                    {% for person in persons %}
+                        <option value="{{ person.id }}">{{ person.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="popup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <h2>Confirmation</h2>
+                <p>Are you sure you want to continue?</p>
+                <button id="cancelBtn" class="btn btn-success mb-1">Cancel</button>
+                <button id="yesBtn" class="btn btn-success mb-1">Yes</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

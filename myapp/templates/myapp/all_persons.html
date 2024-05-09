@@ -1,0 +1,17 @@
+<!-- all_persons.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Persons</title>
+</head>
+<body>
+    <h1>All Persons</h1>
+    <ul>
+        {% for person in persons %}
+        <li>{{ person.name }} - {{ person.dob }} - {{ person.gen }} - {{ person.reg }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

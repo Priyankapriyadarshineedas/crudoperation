@@ -1,0 +1,30 @@
+<!-- person_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Detail</title>
+</head>
+<body>
+    <h1>Person All Detail</h1>
+    <h2>Person Information:</h2>
+    <ul>
+        <li><strong>Name:</strong> {{ person.name }}</li>
+        <li><strong>DOB:</strong> {{ person.dob }}</li>
+        <li><strong>Gender:</strong> {{ person.gen}}</li>
+        <li><strong>Registration_no:</strong> {{ person.reg }}</li>
+
+    </ul>
+    <h2>Address Information:</h2>
+    {% if address %}
+        <ul>
+            <li><strong>Street:</strong> {{ address.street }}</li>
+            <li><strong>City:</strong> {{ address.city }}</li>
+            <li><strong>State:</strong> {{ address.state }}</li>
+            <li><strong>Zipcode:</strong> {{ address.zipcode }}</li>
+        </ul>
+    {% else %}
+        <p>No address found for this person.</p>
+    {% endif %}
+</body>
+</html>

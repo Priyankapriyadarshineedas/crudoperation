@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>confirm delete</title>
+</head>
+<body>
+    <!-- confirm_delete.html -->
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to delete {{ person.name }}?</p>
+<form id="confirmDeleteForm" method="post" action="{% url 'delete_person' person.id %}">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Confirm Delete</button>
+</form>
+
+<!-- Include Axios library for making AJAX requests -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Link the JavaScript file -->
+<script src="{% static 'js/delete.js' %}"></script>
+
+</body>
+</html>
